@@ -1,22 +1,26 @@
 # YouTubeDownloader
 Downloader
-# 1) Permisos, actualizar e instalar herramientas básicas
-termux-setup-storage             # concede acceso a /sdcard (acepta la ventana en Android)
+# Permitir acceso a almacenamiento
+termux-setup-storage
+
+# Actualizar Termux
 pkg update -y && pkg upgrade -y
+
+# Instalar dependencias necesarias
 pkg install git python ffmpeg -y
 
-# 2) Usar pip3 (asegúrate que pip apunte a Python3)
+# Actualizar pip
 pip3 install --upgrade pip
 
-# 3) Instalar las dependencias Python requeridas por el repo
+# Clonar el repositorio correcto
+git clone https://github.com/ralvarado9/YouTubeDownloader.git
+cd YouTubeDownloader
+
+# Instalar librerías Python necesarias
 pip3 install yt-dlp colorama
 
-# 4) Clonar el repositorio (cámbialo si ya lo descargaste)
-git clone https://github.com/imraj569/YouTube_Downloader.git
-cd YouTube_Downloader
+# Crear carpeta para guardar descargas (opcional)
+mkdir -p /sdcard/Download/YT
 
-# 5) Verifica los archivos y abre playlist.py para ver opciones (útil para saber argumentos)
-ls -la
-sed -n '1,200p' playlist.py    # muestra las primeras 200 líneas (lee la ayuda/instrucciones del script)
-# o
-python3 playlist.py --help     # algunos scripts muestran ayuda con --help
+# Ejecutar el programa
+python3 playlist.py
